@@ -16,18 +16,18 @@ The config repository (tests / environments) is seperated by design so it can be
 $ConfigRepoPath = "C:\src\VexConfigRepo"
 ```
 
-Run all tests with default parameters
+#### Run all tests with default parameters
 ```powershell
 Invoke-VexTest -ConfigRepoPath $ConfigRepoPath
 ```
 
-Run all tests tagged with "Daily" schedule
+#### Run all tests tagged with "Daily" schedule
 ```powershell
 $Schedule = "Daily"
 Invoke-VexTest -ConfigRepoPath $ConfigRepoPath -RunType "Schedule" -RunTypeParams $Schedule -OutputTarget "None" -Show All
 ```
 
-Run specific tests
+#### Run specific tests
 ```powershell
 $TestList = ("Team1\OneEqualsOne.tests.ps1", "Team2\TwoEqualsTwo.tests.ps1")
 Invoke-VexTest -ConfigRepoPath $ConfigRepoPath -RunType "TestList" -RunTypeParams $TestList -Show All

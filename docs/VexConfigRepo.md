@@ -5,7 +5,7 @@ The config repository (tests / environments) is seperated by design so it can be
 ## Folders:
 
 ### .\EnvironmentConfig
-Contains Environment.json file. These are the list of environments/servers you would like to run your tests against.
+Contains `Environment.json` file. These are the list of environments/servers you would like to run your tests against.
 
 ##### Example:
 ```json
@@ -50,29 +50,29 @@ Param(
 
 $query = "select 1 as TestResult"
 
-Describe "Return One from all servers"  {
+Describe "Return One from all servers" {
 
-	foreach ($server in $ServersToTest) {
+    foreach ($server in $ServersToTest) {
 		
-		#Use context to log the target server name for each test in the output
-		Context $server {
-			It "Testing return one on server $server" {
+        #Use context to log the target server name for each test in the output
+        Context $server {
+            It "Testing return one on server $server" {
 
-				@(Invoke-Sqlcmd -ServerInstance $server -Query $query).TestResult | Should Be 1
+                @(Invoke-Sqlcmd -ServerInstance $server -Query $query).TestResult | Should Be 1
 
-			}
-		}
+            }
+        }
 
-	}
+    }
 }
 ```
 
 ### .\TestConfig
-Configuration for the test. Tests *will not run* unless it is configured within this folder in a `.config.json`
+Configuration for the test. Tests will *not* run unless it is configured within this folder in a `.config.json`
 It is recommended to have the same folder structure as "Tests" folder to have seperate configuration for seperate teams/folders
 **Config fields:**
 - **Testfile:** The Folder\\FileName as it exists in `.\VexConfigRepo\Tests` (needs `\\` to properly escape backslash in json)
-- **EnvironmentsToTest:** A list of environments to test. Vex will parse the Environments.json file for the list of environments and pass in a distinct serverlist to the test during runtime.
+- **EnvironmentsToTest:** A list of environments to test. Vex will parse the `Environments.json` file for the list of environments and pass in a distinct serverlist to the test during runtime.
 - **AlertOperator:** This field will be part of the test result output that is saved to the OutputTarget. Custom alerts can be configured based on this data.
 - **Schedule:** Tag schedules for the tests so it can be called when running all tests for a specific schedule. Jobs can be configured to Invoke-VexTest on multiple schedules with different tags
 

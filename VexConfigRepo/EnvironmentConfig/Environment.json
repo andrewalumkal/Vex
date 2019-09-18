@@ -1,0 +1,25 @@
+{
+    "EnvironmentList": [
+
+        {
+            "EnvironmentName": "localhost",
+            "Servers": [ "localhost" ]
+        },
+		
+		{
+            "EnvironmentName": "TestServers",
+            "Servers": [ "localhost", "localhost" ]
+        },
+		
+		{
+            "EnvironmentName": "DatabaseServers",
+            "Servers": [ "localhost", "localhost" ]
+        },
+		
+		{
+            "EnvironmentName": "WebServers",
+            "Servers": [ "localhost", "localhost" ]
+        }
+
+    ]
+}

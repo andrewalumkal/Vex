@@ -1,0 +1,16 @@
+{
+    "TestConfig": [
+
+        {
+            "TestFile": "Team1\\OneEqualsOne.tests.ps1",
+            "EnvironmentsToTest": [ "localhost", "WebServers" ],
+            "AlertOperator": "Team1",
+            "Schedule": [ "Daily" ]
+        }
+
+    ]
+
+}
+
+
+    

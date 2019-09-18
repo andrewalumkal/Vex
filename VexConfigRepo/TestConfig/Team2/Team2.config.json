@@ -1,0 +1,16 @@
+{
+    "TestConfig": [
+
+        {
+            "TestFile": "Team2\\TwoEqualsTwo.tests.ps1",
+            "EnvironmentsToTest": [ "TestServers", "DatabaseServers" ],
+            "AlertOperator": "Team2",
+            "Schedule": [ "Hourly", "Weekly" ]
+        }
+
+    ]
+
+}
+
+
+    

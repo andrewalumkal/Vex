@@ -68,7 +68,3 @@ Supported Inputs:
 - None
 - Summary(default)
 - Failed
-
-
-
-

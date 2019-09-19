@@ -51,7 +51,7 @@ Parameters for RunTypes. Supported Inputs:
 - If `-RunType="Schedule"`, pass in a single value (Weekly / Daily / Hourly / Mon2pm). This can be any value - Vex will check the test config for any tests with the same tagged value
 - If `-RunType="TestList"`, pass in a list of tests. Example:
 ```powershell
-- $TestList = ("Team1\Team1Test.tests.ps1", "Team2\Team2Test.tests.ps1")
+$TestList = ("Team1\Team1Test.tests.ps1", "Team2\Team2Test.tests.ps1")
 ```
 	
 #### -OutputTarget

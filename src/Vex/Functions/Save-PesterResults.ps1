@@ -9,7 +9,7 @@ Function Save-PesterResults () {
         $OutputTarget,
 
         [Parameter(Mandatory = $true)]
-        $ConfigRepoPath
+        $TargetCredential
     )
 
     $LogType = "VexTest"
@@ -22,7 +22,7 @@ Function Save-PesterResults () {
             Write-Verbose "Exporting $($PesterResultObject.Count) results"
             $resultJson = ConvertTo-Json $PesterResultObject
 
-            Push-OMS -json $resultJson -ConfigRepoPath $ConfigRepoPath -LogType $LogType -TimeStampField $TimeStampField
+            Push-OMS -json $resultJson -TargetCredential $TargetCredential -LogType $LogType -TimeStampField $TimeStampField
             Write-Verbose "Sent results to OMS"
     
         }

@@ -16,13 +16,35 @@ Function Invoke-VexTest () {
         $OutputTarget = "None",
 
         [Parameter(Mandatory = $false)]
+        $TargetCredential,
+
+        [Parameter(Mandatory = $false)]
         [ValidateSet('All', 'None', 'Summary', 'Failed')]
         $Show = "Summary"
     )
 
     if ($RunType -ne "All" -and [string]::IsNullOrWhiteSpace($RunTypeParams)) {
-        Write-Host "Please supply RunTypeParams"
+        Write-Error "Please supply RunTypeParams"
         return
+    }
+
+    if ($OutputTarget -ne "None") {
+		
+        if ([string]::IsNullOrWhiteSpace($TargetCredential.CredentialName)) {
+            Write-Error "Please supply a CredentialName"
+            return
+        }
+
+        if ([string]::IsNullOrWhiteSpace($TargetCredential.CredentialID)) {
+            Write-Error "Please supply a CredentialID"
+            return
+        }
+
+        if ([string]::IsNullOrWhiteSpace($TargetCredential.CredentialSecret)) {
+            Write-Error "Please supply a CredentialSecret"
+            return
+        }
+
     }
 
     Write-Verbose "Output Target: $OutputTarget"
@@ -123,7 +145,7 @@ Function Invoke-VexTest () {
 
 
                 else {
-                    Save-PesterResults -PesterResultObject $pesterResults -OutputTarget $OutputTarget -ConfigRepoPath $ConfigRepoPath
+                    Save-PesterResults -PesterResultObject $pesterResults -OutputTarget $OutputTarget -TargetCredential $TargetCredential
                 }
 
             }

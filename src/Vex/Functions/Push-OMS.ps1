@@ -5,7 +5,7 @@ function Push-OMS {
         $json,
 
         [Parameter(Mandatory = $true)]
-        $ConfigRepoPath,
+        $TargetCredential,
 
         [Parameter(Mandatory = $true)]
         $LogType,
@@ -16,14 +16,11 @@ function Push-OMS {
 
     )
     
-    $OMSPath = $ConfigRepoPath + "\OMSWorkspaceConfig\OMSWorkspace.json"
-    $credentialConfig = Get-Content -Raw -Path $OMSPath | ConvertFrom-Json
-	
     # Assign Workspace ID
-    $WorkspaceId = $credentialConfig.WorkspaceId 
+    $WorkspaceId = $TargetCredential.CredentialID 
 
     # Assign Primary Key
-    $SharedKey = $credentialConfig.SharedKey
+    $SharedKey = $TargetCredential.CredentialSecret
 
     #Send Data
     Send-OMSData -customerId $WorkspaceId -sharedKey $sharedKey -body ([System.Text.Encoding]::UTF8.GetBytes($json)) -logType $logType -TimeStampField $TimeStampField

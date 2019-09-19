@@ -69,9 +69,10 @@ Describe "Return One from all servers" {
 
 ### .\TestConfig
 Configuration for the test. Tests will *not* run unless it is configured within this folder in a `.config.json`
-It is recommended to have the same folder structure as "Tests" folder to have seperate configuration for seperate teams/folders
+It is recommended to have the same folder structure as "Tests" folder to have seperate configuration for seperate teams/folders. 
+
 **Config fields:**
-- **Testfile:** The Folder\\FileName as it exists in `.\VexConfigRepo\Tests` (needs `\\` to properly escape backslash in json)
+- **Testfile:** The Folder\\\TestFileName as it exists in `.\VexConfigRepo\Tests` (needs `\\` to properly escape backslash in json)
 - **EnvironmentsToTest:** A list of environments to test. Vex will parse the `Environments.json` file for the list of environments and pass in a **distinct** server list to the test during runtime.
 - **AlertOperator:** This field will be part of the test result output that is saved to the OutputTarget. Custom alerts can be configured based on this data.
 - **Schedule:** Tag schedules for the tests so it can be called when running all tests for a specific schedule. Jobs can be configured to Invoke-VexTest on multiple schedules with different tags

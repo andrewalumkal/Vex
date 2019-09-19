@@ -35,7 +35,7 @@ Invoke-VexTest -ConfigRepoPath $ConfigRepoPath -RunType "TestList" -RunTypeParam
 ## Vex Parameters
 
 #### -ConfigRepoPath
-Path to VexConfigRepo. Use the same file names and directory structure as provided in the sample repo (src\Vex\VexConfigRepo). 
+Path to VexConfigRepo. Use the same file names and directory structure as provided in the sample repo (.\VexConfigRepo). 
 For more information on the VexConfigRepo, refer to the [the documentation](./docs/VexConfigRepo.md)
 
 #### -RunType
